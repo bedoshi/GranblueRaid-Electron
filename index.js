@@ -5,24 +5,6 @@ const notify = remote.require('./notifier')
 const notification = (title, message) => {
     notify.notification(title, message)
 }
-// let consumer_key
-// let consumer_secret
-// let access_token_key
-// let access_token_secret
-
-// $.getJSON("secret.json", function(json) {
-//     // console.log(json)
-
-//     consumer_key = json['consumer_key']
-//     consumer_secret = json['consumer_secret']
-//     access_token_key = json['access_token_key']
-//     access_token_secret = json['access_token_secret']
-
-//     // console.log('consumer_key: ' + consumer_key)
-//     // console.log('consumer_secret: ' + consumer_secret)
-//     // console.log('access_token_key: ' + access_token_key)
-//     // console.log('access_token_secret: ' + access_token_secret)
-// })
 
 const consumer_key = 'input your key'
 const consumer_secret = 'input your key'
@@ -35,34 +17,6 @@ const client = new Twitter({
     access_token_key,
     access_token_secret
 })
-
-function testFunction() {
-    console.log("start testFunction.");
-
-    var params = {screen_name: 'bedoshi', count: 1};
-    client.get('statuses/user_timeline', params, (error, tweets, response) => {
-        if (!error) {
-            console.log(tweets);
-        } else {
-            console.error((error[0])['code'] + ': ' + (error[0])['message']);
-        }
-    });
-}
-
-// function stream() {
-//     // const stream = client.stream('statuses/filter', {track: 'javascript'});
-//     //     stream.on('data', function(event) {
-//     //     console.log(event && event.text);
-//     // });
- 
-//     // stream.on('error', function(error) {
-//     //     throw error;
-//     // });
-
-//     const target = window.$('#inputedText').value
-//     console.log("inputed text: " + target)
-// }
-
 
 $('#startBtn').click(function() {
     const target = $('#inputedText').val()
@@ -114,12 +68,4 @@ function extractID(text) {
 function writeToClipboard(text) {
     clipboard.writeText('Example String')
     clipboard.writeText('' + text)
-}
-
-/**
- * 通知ウィンドウを出す
- * @param {*} text 救援ID
- */
-function openNotification(text) {
-    notification('グラブル救援ツール あっと electron', text)
 }
