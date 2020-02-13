@@ -8,13 +8,10 @@
 
 ## How to lunch this?
 1. Node.jsをインストールしてください。 Install node.js
-2. 以下のコマンドを実行してください。 Execute the following command.
-```
-npm i -g electron
-npm i -g electron-packager
-```
-3. このリポジトリをクローンしてください。 Clone this repository.
-4. 以下のコマンドをクローン先のパスで実行してください。 Exectute the following commands at the directory of cloning this.
+    - macの人はnodebrewがおすすめです。
+    - 参考：https://qiita.com/ucan-lab/items/517ee13a2f8769ab866c
+2. このリポジトリをクローンしてください。 Clone this repository.
+3. 以下のコマンドをクローン先のパスで実行してください。 Exectute the following commands at the directory of cloning this.
 ```
 npm ci
 ```
