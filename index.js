@@ -1,10 +1,6 @@
 window.$ = window.jQuery = require('jquery')
 const Twitter = require('twitter')
 const { clipboard, remote } = require('electron')
-const notify = remote.require('./notifier')
-const notification = (title, message) => {
-    notify.notification(title, message)
-}
 
 const consumer_key = 'input your key'
 const consumer_secret = 'input your key'
@@ -36,7 +32,6 @@ $('#startBtn').click(function() {
         if(targetId != null && targetId != '') {
             console.log(event && event.text)
             writeToClipboard(targetId)
-            notification(targetId)
             updateLatestText(event.text, targetId)
         }
         
