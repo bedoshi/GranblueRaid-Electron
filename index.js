@@ -16,27 +16,34 @@ const client = new Twitter({
 
 $('#startBtn').click(function() {
     const target = $('#inputedText').val()
-    
     if(target == null || target == '') {
-        console.log('何も入力されていません')      
+        console.log('何も入力されていません')
         return;
-    } 
+    }
 
     console.log(target + 'が入力されています')
 
     const stream = client.stream('statuses/filter', {track: ('参戦ID,' + target)})
         stream.on('data', function(event) {
-        
         const targetId = extractID(event.text)
 
-        if(targetId != null && targetId != '') {
+        if(isValidHelpTweet(event.text, targetId)) {
             console.log(event && event.text)
             writeToClipboard(targetId)
             updateLatestText(event.text, targetId)
         }
-        
+
     });
 })
+
+/**
+ * 有効な救援Tweetか判定する
+ * @param {*} text tweet text
+ * @param {*} id helper id
+ */
+function isValidHelpTweet(text, id) {
+    return id != null && id != '' && includingID(text)
+}
 
 /**
  * 画面に表示する情報を更新する
@@ -63,4 +70,12 @@ function extractID(text) {
 function writeToClipboard(text) {
     clipboard.writeText('Example String')
     clipboard.writeText('' + text)
+}
+
+/**
+ * テキスト内に「参戦ID」の文字列があるか判定する
+ * @param {*} text Tweet text
+ */
+function includingID(text) {
+    return text.match(/参戦ID/);
 }
