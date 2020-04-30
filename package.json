@@ -22,7 +22,7 @@
   "author": "bedoshi",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "node-notifier": "^5.4.1",
     "twitter": "^1.7.1"
   },
