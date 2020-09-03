@@ -13,6 +13,7 @@
 2. このリポジトリをクローンしてください。 Clone this repository.
 3. 以下のコマンドをクローン先のパスで実行してください。 Exectute the following commands at the directory of cloning this.
 ```
+npm install -g electron
 npm ci
 ```
 4. index.jsにTwitter api の アプリキー情報を入力してください。 Input your Twitter api key-info on `index.js`.
